@@ -15,7 +15,7 @@ cask "printclock" do
     # The build is not notarized, so remove Homebrew's download quarantine to
     # let the cask install launch normally.
     run "/usr/bin/xattr",
-        args: ["-dr", "com.apple.quarantine", "#{appdir}/PrintClock.app"]
+        args: ["-dr", "com.apple.quarantine", "/Applications/PrintClock.app"]
   end
 
   caveats <<~EOS
