@@ -11,12 +11,11 @@ cask "printclock" do
 
   app "PrintClock.app"
 
-  postflight do
+  postflight_steps do
     # The build is not notarized, so remove Homebrew's download quarantine to
     # let the cask install launch normally.
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/PrintClock.app"],
-                   sudo: false
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "#{appdir}/PrintClock.app"]
   end
 
   caveats <<~EOS
