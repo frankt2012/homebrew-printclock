@@ -11,9 +11,17 @@ cask "printclock" do
 
   app "PrintClock.app"
 
+  postflight do
+    # The build is not notarized, so remove Homebrew's download quarantine to
+    # let the cask install launch normally.
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/PrintClock.app"],
+                   sudo: false
+  end
+
   caveats <<~EOS
     PrintClock is signed for local development and is not notarized.
-    On first launch, right-click the app in Applications and choose Open,
-    or allow it in System Settings → Privacy & Security.
+    Homebrew removes the download quarantine for this cask. If you install
+    from the DMG instead, right-click the app in Applications and choose Open.
   EOS
 end
