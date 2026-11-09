@@ -1,0 +1,19 @@
+cask "printclock" do
+  version "1.0.0"
+  sha256 "5b7a8488273963809c469db74b3da111fafe913a749710592e5f7bcefa18a15a"
+
+  url "https://github.com/frankt2012/PrintClock/releases/download/v#{version}/PrintClock-#{version}.dmg"
+  name "PrintClock"
+  desc "3D print finish-time calculator for the macOS menu bar"
+  homepage "https://github.com/frankt2012/PrintClock"
+
+  depends_on macos: :sonoma
+
+  app "PrintClock.app"
+
+  caveats <<~EOS
+    PrintClock is signed for local development and is not notarized.
+    On first launch, right-click the app in Applications and choose Open,
+    or allow it in System Settings → Privacy & Security.
+  EOS
+end
