@@ -1,6 +1,6 @@
 cask "printclock" do
-  version "1.0.0"
-  sha256 "5b7a8488273963809c469db74b3da111fafe913a749710592e5f7bcefa18a15a"
+  version "1.1.0"
+  sha256 "55716fa0c1434fa8ac2829f592158942dd933fca988f8d014c833cae5ce459c6"
 
   url "https://github.com/frankt2012/PrintClock/releases/download/v#{version}/PrintClock-#{version}.dmg"
   name "PrintClock"
